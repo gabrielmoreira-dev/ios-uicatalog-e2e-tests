@@ -2,7 +2,7 @@ import io.appium.java_client.AppiumBy
 import org.testng.Assert
 import org.testng.annotations.Test
 
-class AlertViewTests : IOSBaseTest() {
+class AlertViewTest : IOSBaseTest() {
     @Test
     fun testAlertView() {
         driver.apply {

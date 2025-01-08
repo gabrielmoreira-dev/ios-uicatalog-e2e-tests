@@ -6,7 +6,7 @@ import java.net.URL
 import java.nio.file.Paths
 
 open class IOSBaseTest {
-    lateinit var driver: IOSDriver
+    protected lateinit var driver: IOSDriver
     private val serverURL = URL("http://127.0.0.1:4723")
     private val userDir = System.getProperty("user.dir")
     private val resourcesDir = "src/test/resources"

@@ -10,6 +10,9 @@ class HomePage(private val driver: IOSDriver) {
     @iOSXCUITFindBy(accessibility = "Alert Views")
     private lateinit var alertViewsItem: WebElement
 
+    @iOSXCUITFindBy(accessibility = "Picker View")
+    private lateinit var pickerViewItem: WebElement
+
     init {
         PageFactory.initElements(AppiumFieldDecorator(driver), this)
     }
@@ -17,5 +20,10 @@ class HomePage(private val driver: IOSDriver) {
     fun openAlertViewPage() = run {
         alertViewsItem.click()
         AlertViewPage(driver)
+    }
+
+    fun openPickerViewPage() = run {
+        pickerViewItem.click()
+        PickerViewPage(driver)
     }
 }

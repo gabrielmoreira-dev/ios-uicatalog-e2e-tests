@@ -13,7 +13,7 @@ open class IOSBaseTest {
     private val localApp = "UIKitCatalog.app"
 
     @BeforeClass
-    protected fun setUp() = DesiredCapabilities().apply {
+    protected fun setUpDriver() = DesiredCapabilities().apply {
         val appPath = Paths.get(userDir, resourcesDir, localApp).toAbsolutePath().toString()
         setCapability("appium:app", appPath)
         setCapability("platformName", "IOS")
@@ -25,5 +25,5 @@ open class IOSBaseTest {
     }
 
     @AfterClass
-    protected fun tearDown() = driver.quit()
+    protected fun dispose() = driver.quit()
 }

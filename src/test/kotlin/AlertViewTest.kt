@@ -3,12 +3,12 @@ import pages.HomePage
 
 class AlertViewTest : IOSBaseTest() {
     @Test
-    fun testAlertView() = HomePage(driver).openAlertViewPage().run {
+    fun testAlertView() = with(HomePage(driver).openAlertViewPage()) {
         entryText("Hello World")
     }
 
     @Test
-    fun testClickOnCancelView() = HomePage(driver).openAlertViewPage().run {
+    fun testClickOnCancelView() = with(HomePage(driver).openAlertViewPage()) {
         openConfirmationAlert()
         verifyConfirmationText("A message should be a short, complete sentence.")
     }

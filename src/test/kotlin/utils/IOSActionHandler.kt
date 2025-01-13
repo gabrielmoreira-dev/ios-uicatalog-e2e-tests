@@ -5,10 +5,10 @@ import org.openqa.selenium.WebElement
 import org.openqa.selenium.remote.RemoteWebElement
 
 class IOSActionHandler(private val driver: IOSDriver) {
-    fun touchAndHold(element: WebElement, duration: Int) = HashMap<String, Any>().apply {
+    fun touchAndHold(element: WebElement, duration: Int): Unit = HashMap<String, Any>().apply {
         put("element", (element as RemoteWebElement).id)
         put("duration", duration)
-    }.also {
+    }.let {
         driver.executeScript("mobile: touchAndHold", it)
     }
 }

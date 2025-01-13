@@ -3,7 +3,7 @@ import pages.HomePage
 
 class SteppersTest : IOSBaseTest() {
     @Test
-    fun testLogPress() = HomePage(driver).openSteppersPage().run {
+    fun testLogPress() = with(HomePage(driver).openSteppersPage()) {
         holdIncrementButton()
         verifyValue()
     }

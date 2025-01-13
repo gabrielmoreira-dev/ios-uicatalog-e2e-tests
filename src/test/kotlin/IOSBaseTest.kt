@@ -13,17 +13,17 @@ open class IOSBaseTest {
     private val localApp = "UIKitCatalog.app"
 
     @BeforeClass
-    fun setUp() = DesiredCapabilities().apply {
+    protected fun setUp() = DesiredCapabilities().apply {
         val appPath = Paths.get(userDir, resourcesDir, localApp).toAbsolutePath().toString()
         setCapability("appium:app", appPath)
         setCapability("platformName", "IOS")
         setCapability("appium:automationName", "XCUITest")
         setCapability("appium:deviceName", "iPhone 15 Pro")
         setCapability("appium:platformVersion", "18.0")
-    }.also {
+    }.let {
         driver = IOSDriver(serverURL, it)
     }
 
     @AfterClass
-    fun tearDown() = driver.quit()
+    protected fun tearDown() = driver.quit()
 }

@@ -13,6 +13,9 @@ class HomePage(private val driver: IOSDriver) {
     @iOSXCUITFindBy(accessibility = "Picker View")
     private lateinit var pickerViewItem: WebElement
 
+    @iOSXCUITFindBy(accessibility = "Steppers")
+    private lateinit var steppersItem: WebElement
+
     init {
         PageFactory.initElements(AppiumFieldDecorator(driver), this)
     }
@@ -25,5 +28,10 @@ class HomePage(private val driver: IOSDriver) {
     fun openPickerViewPage() = run {
         pickerViewItem.click()
         PickerViewPage(driver)
+    }
+
+    fun openSteppersPage() = run {
+        steppersItem.click()
+        SteppersPage(driver)
     }
 }

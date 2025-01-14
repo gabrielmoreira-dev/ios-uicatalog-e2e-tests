@@ -3,7 +3,7 @@ import org.testng.annotations.Test
 import pages.HomePage
 import pages.SteppersPage
 
-class SteppersTest : IOSBaseTest() {
+class SteppersTest : BaseTest() {
     private lateinit var sut: SteppersPage
 
     @BeforeMethod

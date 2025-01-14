@@ -1,10 +1,10 @@
 package pages
 
-import io.appium.java_client.ios.IOSDriver
+import io.appium.java_client.AppiumDriver
 import io.appium.java_client.pagefactory.iOSXCUITFindBy
 import org.openqa.selenium.WebElement
 
-class HomePage(driver: IOSDriver) : BasePage(driver) {
+class HomePage(driver: AppiumDriver) : BasePage(driver) {
     @iOSXCUITFindBy(accessibility = "Alert Views")
     private lateinit var alertViewsItem: WebElement
 

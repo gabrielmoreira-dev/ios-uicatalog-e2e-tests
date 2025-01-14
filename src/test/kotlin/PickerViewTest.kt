@@ -3,7 +3,7 @@ import org.testng.annotations.Test
 import pages.HomePage
 import pages.PickerViewPage
 
-class PickerViewTest : IOSBaseTest() {
+class PickerViewTest : BaseTest() {
     private lateinit var sut: PickerViewPage
 
     @BeforeMethod

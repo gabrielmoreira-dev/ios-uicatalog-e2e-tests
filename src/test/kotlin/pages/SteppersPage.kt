@@ -1,11 +1,11 @@
 package pages
 
-import io.appium.java_client.ios.IOSDriver
+import io.appium.java_client.AppiumDriver
 import io.appium.java_client.pagefactory.iOSXCUITFindBy
 import org.openqa.selenium.WebElement
 import org.testng.Assert
 
-class SteppersPage(driver: IOSDriver) : BasePage(driver) {
+class SteppersPage(driver: AppiumDriver) : BasePage(driver) {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`name == \"Increment\"`][1]")
     private lateinit var incrementButton: WebElement
 

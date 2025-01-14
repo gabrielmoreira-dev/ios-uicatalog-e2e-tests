@@ -1,11 +1,11 @@
 package pages
 
-import io.appium.java_client.ios.IOSDriver
+import io.appium.java_client.AppiumDriver
 import io.appium.java_client.pagefactory.iOSXCUITFindBy
 import org.openqa.selenium.WebElement
 import org.testng.Assert
 
-class AlertViewPage(driver: IOSDriver) : BasePage(driver) {
+class AlertViewPage(driver: AppiumDriver) : BasePage(driver) {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name == \"Text Entry\"`]")
     private lateinit var textEntryItem: WebElement
 

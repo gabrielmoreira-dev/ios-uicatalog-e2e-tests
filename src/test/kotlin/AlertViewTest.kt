@@ -3,7 +3,7 @@ import org.testng.annotations.Test
 import pages.AlertViewPage
 import pages.HomePage
 
-class AlertViewTest : IOSBaseTest() {
+class AlertViewTest : BaseTest() {
     private lateinit var sut: AlertViewPage
 
     @BeforeMethod

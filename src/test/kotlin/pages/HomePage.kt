@@ -1,12 +1,10 @@
 package pages
 
 import io.appium.java_client.ios.IOSDriver
-import io.appium.java_client.pagefactory.AppiumFieldDecorator
 import io.appium.java_client.pagefactory.iOSXCUITFindBy
 import org.openqa.selenium.WebElement
-import org.openqa.selenium.support.PageFactory
 
-class HomePage(private val driver: IOSDriver) {
+class HomePage(driver: IOSDriver) : BasePage(driver) {
     @iOSXCUITFindBy(accessibility = "Alert Views")
     private lateinit var alertViewsItem: WebElement
 
@@ -15,10 +13,6 @@ class HomePage(private val driver: IOSDriver) {
 
     @iOSXCUITFindBy(accessibility = "Steppers")
     private lateinit var steppersItem: WebElement
-
-    init {
-        PageFactory.initElements(AppiumFieldDecorator(driver), this)
-    }
 
     fun openAlertViewPage() = run {
         alertViewsItem.click()

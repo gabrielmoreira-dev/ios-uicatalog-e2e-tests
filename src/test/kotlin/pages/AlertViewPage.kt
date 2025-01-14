@@ -1,13 +1,11 @@
 package pages
 
 import io.appium.java_client.ios.IOSDriver
-import io.appium.java_client.pagefactory.AppiumFieldDecorator
 import io.appium.java_client.pagefactory.iOSXCUITFindBy
 import org.openqa.selenium.WebElement
-import org.openqa.selenium.support.PageFactory
 import org.testng.Assert
 
-class AlertViewPage(driver: IOSDriver) {
+class AlertViewPage(driver: IOSDriver) : BasePage(driver) {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name == \"Text Entry\"`]")
     private lateinit var textEntryItem: WebElement
 
@@ -22,10 +20,6 @@ class AlertViewPage(driver: IOSDriver) {
 
     @iOSXCUITFindBy(iOSNsPredicate = "name BEGINSWITH[c] 'A message'")
     private lateinit var confirmationTextView: WebElement
-
-    init {
-        PageFactory.initElements(AppiumFieldDecorator(driver), this)
-    }
 
     fun entryText(value: String) {
         textEntryItem.click()

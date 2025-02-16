@@ -1,3 +1,4 @@
+import org.testng.annotations.AfterMethod
 import org.testng.annotations.BeforeMethod
 import org.testng.annotations.Test
 import pages.HomePage
@@ -10,6 +11,9 @@ class SteppersTest : BaseTest() {
     private fun setUp() = with(HomePage(driver)) {
         sut = openSteppersPage()
     }
+
+    @AfterMethod
+    private fun tearDown() = sut.dispose()
 
     @Test
     fun testLogPress() = with(sut) {

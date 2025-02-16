@@ -21,6 +21,12 @@ class AlertViewPage(driver: AppiumDriver) : BasePage(driver) {
     @iOSXCUITFindBy(iOSNsPredicate = "name BEGINSWITH[c] 'A message'")
     private lateinit var confirmationTextView: WebElement
 
+    @iOSXCUITFindBy(accessibility = "Cancel")
+    private lateinit var cancelButton: WebElement
+
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`name == \"UIKitCatalog\"`]")
+    private lateinit var backButton: WebElement
+
     fun entryText(value: String) {
         textEntryItem.click()
         textField.sendKeys(value)
@@ -30,4 +36,11 @@ class AlertViewPage(driver: AppiumDriver) : BasePage(driver) {
     fun openConfirmationAlert() = confirmationItem.click()
 
     fun verifyConfirmationText(expected: String) = Assert.assertEquals(confirmationTextView.text, expected)
+
+    fun dispose() = try {
+        cancelButton.click()
+    } catch (ignored: Exception) {
+    } finally {
+        backButton.click()
+    }
 }

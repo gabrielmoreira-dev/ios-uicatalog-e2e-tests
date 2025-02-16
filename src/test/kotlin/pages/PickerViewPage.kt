@@ -15,6 +15,9 @@ class PickerViewPage(driver: AppiumDriver) : BasePage(driver) {
     @iOSXCUITFindBy(accessibility = "Blue color component value")
     private lateinit var bluePicker: WebElement
 
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`name == \"UIKitCatalog\"`]")
+    private lateinit var backButton: WebElement
+
     fun serRGBColors(red: String, green: String, blue: String) {
         redPicker.sendKeys(red)
         greenPicker.sendKeys(green)
@@ -23,4 +26,6 @@ class PickerViewPage(driver: AppiumDriver) : BasePage(driver) {
 
     fun verifyRGBColors(expected: Array<String>) =
         Assert.assertEquals(arrayOf(redPicker.text, greenPicker.text, bluePicker.text), expected)
+
+    fun dispose() = backButton.click()
 }

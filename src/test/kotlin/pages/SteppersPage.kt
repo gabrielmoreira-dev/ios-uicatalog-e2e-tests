@@ -12,7 +12,12 @@ class SteppersPage(driver: AppiumDriver) : BasePage(driver) {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name == \"10\"`]")
     private lateinit var valueTextView: WebElement
 
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`name == \"UIKitCatalog\"`]")
+    private lateinit var backButton: WebElement
+
     fun holdIncrementButton() = touchAndHold(incrementButton, 5)
 
     fun verifyValue() = Assert.assertEquals(valueTextView.text, "10")
+
+    fun dispose() = backButton.click()
 }

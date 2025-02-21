@@ -1,18 +1,16 @@
 import io.appium.java_client.AppiumDriver
-import io.appium.java_client.service.local.AppiumDriverLocalService
 import org.testng.annotations.AfterSuite
 import org.testng.annotations.BeforeClass
 import org.testng.annotations.BeforeSuite
 import utils.AppiumDriverWrapper
+import utils.AppiumServiceWrapper
 
 open class BaseTest {
-    private lateinit var service: AppiumDriverLocalService
+    private val service = AppiumServiceWrapper.getService()
     protected lateinit var driver: AppiumDriver
 
     @BeforeSuite
-    protected fun startAppium() {
-        service = AppiumDriverLocalService.buildDefaultService().apply { start() }
-    }
+    protected fun startAppium() = service.start()
 
     @BeforeClass
     protected fun setUpClass() {

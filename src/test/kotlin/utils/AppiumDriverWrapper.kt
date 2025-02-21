@@ -16,6 +16,7 @@ class AppiumDriverWrapper private constructor() {
         private const val DEVICE_NAME = "iPhone 15 Pro"
         private const val SERVER_URL = "http://127.0.0.1:4723"
 
+        @Volatile
         private var instance: AppiumDriver? = null
 
         fun getDriver() = instance ?: synchronized(this) {
